@@ -21,14 +21,22 @@ git clone https://github.com/Dizkm8/rainbow-table
 cd rainbow-table
 ```
 
-2. Install and run API
+2. Install API deps
 ```bash
 cd API
 dotnet restore
+```
+
+3. Configure DB
+    * Download the SQLite DB [here](https://drive.google.com/file/d/1vaj_XHvwcps3MkAogVtMNcH9d3k8rdvB/view?usp=sharing).
+    * Put on API/Data folder with the name PDB2.db
+
+4. Run API
+```bash
 dotnet run
 ```
 
-3. Install and run Client
+5. Install and run Client
 ```bash
 # Create a new terminal at project root
 cd client
