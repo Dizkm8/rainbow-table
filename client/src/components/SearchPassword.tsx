@@ -12,6 +12,7 @@ const SearchPassword = () => {
   const [inputError, setInputError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [coincidence, setCoincidence] = useState<Password | undefined>();
+  const [isSearchDone, setIsSearchDone] = useState(false);
   const valueRef = useRef("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -34,6 +35,7 @@ const SearchPassword = () => {
       })
       .finally(() => {
         setLoading(false);
+        setIsSearchDone(true);
       });
   };
 
@@ -85,7 +87,7 @@ const SearchPassword = () => {
           Find Coincidence
         </LoadingButton>
       </Box>
-      <Coincidence password={coincidence} value={valueRef.current} />
+      {isSearchDone && <Coincidence password={coincidence} value={valueRef.current} />}
     </Container>
   );
 };
