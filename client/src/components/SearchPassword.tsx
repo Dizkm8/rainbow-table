@@ -76,6 +76,7 @@ const SearchPassword = () => {
           error={inputError}
           helperText={inputError && "Please enter a valid hash"}
           onChange={() => setInputError(false)}
+          disabled={loading}
         />
         <LoadingButton
           type="submit"
@@ -87,7 +88,7 @@ const SearchPassword = () => {
           Find Coincidence
         </LoadingButton>
       </Box>
-      {isSearchDone && <Coincidence password={coincidence} value={valueRef.current} />}
+      {isSearchDone && !loading && <Coincidence password={coincidence} value={valueRef.current} />}
     </Container>
   );
 };
